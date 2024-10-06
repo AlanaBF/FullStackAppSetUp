@@ -64,15 +64,6 @@ const Item: React.FC<ItemProps> = ({ item, onUpdateItem, onDeleteItem }) => {
                     className="form-control me-2"
                     style={{ maxWidth: "150px" }}
                   />
-                  <input
-                    type="text"
-                    name="description"
-                    value={editedItem.description}
-                    onChange={handleEditChange}
-                    placeholder="Edit description"
-                    className="form-control me-2"
-                    style={{ maxWidth: "250px" }}
-                  />
                   {/* Buttons in Editing Mode */}
                   <div className="d-flex align-items-center">
                     <button
@@ -100,16 +91,6 @@ const Item: React.FC<ItemProps> = ({ item, onUpdateItem, onDeleteItem }) => {
                     }}
                   >
                     <strong>{item.name}</strong>
-                  </div>
-                  <div
-                    className="me-3 text-muted text-truncate"
-                    style={{
-                      textDecoration: item.completed ? "line-through" : "none",
-                      maxWidth: "250px",
-                      minWidth: "0",
-                    }}
-                  >
-                    {item.description}
                   </div>
                   {/* Buttons in Non-Editing Mode */}
                   <div className="d-flex align-items-center">

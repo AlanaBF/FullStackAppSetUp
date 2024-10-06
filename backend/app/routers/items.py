@@ -12,6 +12,15 @@ router = APIRouter(
     tags=["items"],
 )
 
+
+@router.get("/list/{list_id}", response_model=List[schemas.ItemResponse])
+def read_items(list_id: int, db: Session = Depends(get_db), current_user: models.UserDB = Depends(get_current_user)):
+    return crud.get_items_by_list(db, list_id=list_id, user_id=current_user.id)
+
+@router.post("/list/{list_id}", response_model=schemas.ItemResponse)
+def create_item(list_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db), current_user: models.UserDB = Depends(get_current_user)):
+    return crud.create_item(db=db, item=item, list_id=list_id, user_id=current_user.id)
+
 @router.get("/", response_model=List[schemas.ItemResponse])
 def read_items(db: Session = Depends(get_db), current_user: models.UserDB = Depends(get_current_user)):
     return crud.get_items(db, user_id=current_user.id)

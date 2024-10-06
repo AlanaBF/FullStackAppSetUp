@@ -1,20 +1,84 @@
+/* Reset margins and paddings */
 :root {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure html and body take full height */
   width: 100%;
-  height: 100%;
-  background-color: #c1ff72; /* Example background color */
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: #c1ff72;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .custom-btn {
   background-color: #2cd0fa;
   color: white;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+}
+
+.navbar, .footer {
+  flex-shrink: 0; /* Keep the footer and navbar fixed height */
+}
+
+.main-content {
+  flex-grow: 1; /* Allows the main content to grow and take remaining space */
+  overflow-y: auto; /* Enables vertical scrolling when content overflows */
+  padding: 20px;
+}
+
+.lists-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensure the items wrap */
+  gap: 20px; /* Adds space between cards */
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+.card {
+  flex: 1 1 300px; /* Ensure cards take at least 300px */
+  max-width: 100%; /* Ensure they don't exceed container width */
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  padding: 10px 0;
+  text-align: center; /* Center the title horizontally */
+  background-color: #fff; /* Optional: Give the title a background color for visibility */
+}
+
+.content-wrapper {
+  padding: 20px; /* Padding to create space around the content */
+  padding-top: 40px; /* Extra padding on top for spacing the title */
+  padding-bottom: 60px; /* Padding at the bottom to keep space above the footer */
+}
+
+/* Additional spacing between buttons */
+.card .button-group {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px; /* Optional: Margin to create space above the button group */
+}
+
+/* If you have form groups or similar elements */
+.card .form-group {
+  margin-bottom: 15px; /* Space between form elements */
 }
