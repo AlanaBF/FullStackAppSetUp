@@ -1,0 +1,12 @@
+fastapi
+sqlalchemy
+psycopg2-binary
+databases[postgresql]
+alembic
+uvicorn[standard]  # To run the FastAPI server (optional but common)
+pydantic
+python-dotenv
+passlib[bcrypt]
+python-jose
+email-validator==2.1.0.post1  # Replace with the actual version installed
+python-multipart
