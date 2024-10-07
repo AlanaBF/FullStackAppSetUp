@@ -43,8 +43,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     return (
         <div className="w-100">
             <div className="row justify-content-center"></div>
-            <div className="col-md-6 col-lg-4">
-                <h2 className="">Login</h2>
+            <div className="">
+                <h2 className="text-center mb-4">Login</h2>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 <form onSubmit={handleLogin}>
                     <div className="form-group mb-3">
@@ -52,6 +52,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                         <input
                             title="Login"
                             type="text"
+                            className="form-control"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
@@ -62,12 +63,13 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
                         <input
                             title="Login"
                             type="password"
+                            className="form-control"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                     </div>
-                    <button className="btn custom-btn" type="submit">Login</button>
+                    <button className="btn custom-btn w-100" type="submit">Login</button>
                 </form>
             </div>
         </div>

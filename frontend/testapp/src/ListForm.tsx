@@ -22,12 +22,13 @@ const ListForm: React.FC<ListFormProps> = ({ onAddList }) => {
   return (
     <form onSubmit={handleSubmit} className="mb-3">
       <div className="mb-2">
+        <h2>Create new list</h2>
         <input
           type="text"
           placeholder="List Name"
           value={listName}
           onChange={(e) => setListName(e.target.value)}
-          className="form-control"
+          className="form-control mb-3"
         />
       </div>
       <button className="btn custom-btn" type="submit">Create List</button>

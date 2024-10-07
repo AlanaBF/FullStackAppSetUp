@@ -187,34 +187,30 @@ const App: React.FC = () => {
   // Authentication handling
   if (!isAuthenticated) {
     return showRegister ? (
-      <div className="container-fluid w-100 h-100 mt-5">
-        <div className="text-center">
+      <div className="d-flex flex-column justify-content-center align-items-center vh-100">
+        <div className="text-center mb-4">
           <img src="/ToDoLogo.png" alt="Todo App Logo" style={{ width: '200px', height: 'auto' }} />
         </div>
-        <div className="row">
-          <div className="col-12">
-            <Register />
-            <p className="p-5">
-              Already have an account?{" "}
-              <button className="btn custom-btn" onClick={() => setShowRegister(false)}>Login</button>
-            </p>
-          </div>
+        <div className="register-container">
+          <Register />
+          <p className="text-center mt-4">
+            Already have an account?{" "}
+            <button className="btn custom-btn" onClick={() => setShowRegister(false)}>Login</button>
+          </p>
         </div>
         <Footer />
       </div>
     ) : (
-      <div className="container-fluid w-100 h-100 mt-5">
-        <div className="text-center">
+      <div className="d-flex flex-column justify-content-center align-items-center vh-100">
+        <div className="text-center mb-4">
           <img src="/ToDoLogo.png" alt="Todo App Logo" style={{ width: '200px', height: 'auto' }} />
         </div>
-        <div className="row">
-          <div className="col-12">
-            <Login onLogin={handleLogin} />
-            <p className="">
-              Don't have an account?{" "}
-              <button className="btn custom-btn" onClick={() => setShowRegister(true)}>Register</button>
-            </p>
-          </div>
+        <div className="login-container">
+          <Login onLogin={handleLogin} />
+          <p className="text-center mt-4">
+            Don't have an account?{" "}
+            <button className="btn custom-btn" onClick={() => setShowRegister(true)}>Register</button>
+          </p>
         </div>
         <Footer />
       </div>
@@ -233,12 +229,12 @@ const App: React.FC = () => {
           <ListForm onAddList={addList} />
     
           {/* Add a container that allows horizontal scrolling */}
-          <div className="lists-container mt-4">
+          <div className="lists-container">
             <div className="row">
               {/* Render each list with its associated items */}
               {lists.map((list) => (
                 <div className="col-12 col-md-6 mb-4" key={list.id}>
-                  <div className="card">
+                  <div className="">
                     <ListItem
                       key={list.id}
                       list={list}
