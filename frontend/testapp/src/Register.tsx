@@ -7,11 +7,12 @@ const Register: React.FC = () => {
     const [password, setPassword] = useState("");
     const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:8000/users/", {
+            const response = await fetch(`${API_BASE_URL}/users/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
