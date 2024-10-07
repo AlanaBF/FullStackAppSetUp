@@ -8,10 +8,12 @@ from .routers import users, items, auth, lists
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
+origins = [
+    "https://full-stack-app-set-up.vercel.app/",  # Replace with your Vercel frontend URL
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
