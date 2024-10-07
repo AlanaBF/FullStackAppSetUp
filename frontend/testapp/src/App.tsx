@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [lists, setLists] = useState<List[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [showRegister, setShowRegister] = useState<boolean>(false); // Handle toggle between login and register
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -26,7 +27,7 @@ const App: React.FC = () => {
   const fetchLists = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch("http://localhost:8000/lists/", {
+      const response = await fetch(`${API_BASE_URL}/lists/`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -52,7 +53,7 @@ const App: React.FC = () => {
   const addList = async (list: NewList) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch("http://localhost:8000/lists/", {
+      const response = await fetch(`${API_BASE_URL}/lists/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +75,7 @@ const App: React.FC = () => {
   const deleteList = async (listId: number) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch(`http://localhost:8000/lists/${listId}`, {
+      const response = await fetch(`${API_BASE_URL}/lists/${listId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -93,7 +94,7 @@ const App: React.FC = () => {
   const addItem = async (listId: number, item: NewItem) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch(`http://localhost:8000/items/list/${listId}`, {
+      const response = await fetch(`${API_BASE_URL}/items/list/${listId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +120,7 @@ const App: React.FC = () => {
   const updateItem = async (item: Item) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch(`http://localhost:8000/items/${item.id}`, {
+      const response = await fetch(`${API_BASE_URL}/items/${item.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -150,7 +151,7 @@ const App: React.FC = () => {
   const deleteItem = async (listId: number, itemId: number) => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch(`http://localhost:8000/items/${itemId}`, {
+      const response = await fetch(`${API_BASE_URL}/items/${itemId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
