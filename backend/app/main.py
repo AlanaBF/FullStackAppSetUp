@@ -9,7 +9,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 origins = [
-    "https://full-stack-app-set-up.vercel.app/",  # Replace with your Vercel frontend URL
+    "https://full-stack-app-set-up.vercel.app",  # Replace with your Vercel frontend URL
 ]
 app.add_middleware(
     CORSMiddleware,
